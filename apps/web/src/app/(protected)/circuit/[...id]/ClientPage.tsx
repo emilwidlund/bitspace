@@ -43,6 +43,7 @@ export default function Page({ circuitStore }: { circuitStore: CircuitStore }): 
         {<MenuButton onClick={onMenuButtonClick} animate={menuOpen} />}
       </div>
       <Journey
+        persistenceKey='onboarding-complete'
         steps={[
           {
             title: 'Welcome to Bitspace',
