@@ -147,7 +147,7 @@ export const Node = observer(({ node, actions, window }: NodeProps) => {
                         <NodeAction color="#ff4444" onClick={handleRemoveNode} />
                     </div>
                 </div>
-                {window}
+                {window && <div className="m-4">{window}</div>}
                 <div className={nodeContentWrapperClassNames}>
                     <NodePorts ports={Object.values(node.inputs)} />
                     <NodePorts ports={Object.values(node.outputs)} isOutputWrapper={true} />
@@ -187,7 +187,7 @@ export const NodeWindow = React.forwardRef<HTMLDivElement, React.PropsWithChildr
             <div
                 ref={ref}
                 className={clsx(
-                    'relative flex flex-col m-4 rounded-3xl overflow-hidden shadow-xl max-h-[226px] h-full',
+                    'relative flex flex-col rounded-3xl overflow-hidden shadow-xl max-h-[226px] h-full',
                     className
                 )}
                 onMouseDown={e => e.stopPropagation()}

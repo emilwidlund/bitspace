@@ -22,11 +22,11 @@ export const StringControl = observer(({ port, disabled, onBlur }: StringControl
         };
     }, [port]);
 
-    const handleKeydown: KeyboardEventHandler<HTMLInputElement> = useCallback(e => {
+    const handleKeydown: KeyboardEventHandler<HTMLTextAreaElement> = useCallback(e => {
         e.stopPropagation();
     }, []);
 
-    const handleChange: ChangeEventHandler<HTMLInputElement> = useCallback(
+    const handleChange: ChangeEventHandler<HTMLTextAreaElement> = useCallback(
         e => {
             if (port.type.name === 'String') {
                 const value = port.type.validator.parse(e.target.value);
@@ -36,7 +36,7 @@ export const StringControl = observer(({ port, disabled, onBlur }: StringControl
         [port, setValue]
     );
 
-    const handleBlur: FocusEventHandler<HTMLInputElement> = useCallback(
+    const handleBlur: FocusEventHandler<HTMLTextAreaElement> = useCallback(
         e => {
             if (port.type.name === 'String') {
                 const value = port.type.validator.parse(e.target.value);
@@ -49,8 +49,8 @@ export const StringControl = observer(({ port, disabled, onBlur }: StringControl
     );
 
     return (
-        <input
-            className={clsx('px-3 py-2 rounded-xl w-full shadow-sm border border-slate-100', {
+        <textarea
+            className={clsx('px-3 py-2 rounded-xl w-full shadow-sm border border-slate-100 min-h-24', {
                 'text-slate-400': disabled
             })}
             placeholder={port.type.name}
