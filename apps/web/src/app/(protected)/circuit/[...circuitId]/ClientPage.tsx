@@ -56,7 +56,7 @@ export const ClientPage = ({ circuit }: { circuit: ExtendedNode }) => {
   return (
     <main className="flex flex-row items-stretch h-full w-full gap-x-8">
       <StoreContext.Provider value={{ store: canvasStore }}>
-        <div className="relative flex flex-col justify-between h-full w-full cursor-[url('/cursor.svg')_4_4,auto] rounded-[2rem] overflow-hidden">
+        <div className="relative flex flex-col justify-between h-full w-full cursor-[url('/cursor.svg')_4_4,auto]">
           <motion.div
             className="flex flex-row justify-center items-center w-full absolute h-24 top-0 left-0 right-0 z-10"
             variants={{
@@ -97,8 +97,8 @@ export const ClientPage = ({ circuit }: { circuit: ExtendedNode }) => {
               }
             ]}
           />
+          <PropertyPanel className='absolute top-24 right-12 bg-slate-50 h-fit p-8 rounded-3xl' />
         </div>
-        <PropertyPanel />
       </StoreContext.Provider>
     </main>
   );
