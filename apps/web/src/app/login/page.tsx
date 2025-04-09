@@ -67,6 +67,8 @@ const LoginForm = ({ setEmail, setSent }: LoginFormProps) => {
         }
     });
 
+    const publicUrl = process.env.NEXT_PUBLIC_VERCEL_URL || 'http://localhost:3000';
+
     async function onSubmit({ value }: z.infer<typeof formSchema>) {
         setLoading(true);
 
@@ -75,7 +77,7 @@ const LoginForm = ({ setEmail, setSent }: LoginFormProps) => {
         const { error } = await supabase.auth.signInWithOtp({
             email: value,
             options: {
-                emailRedirectTo: 'https://bitspace.sh/dashboard'
+                emailRedirectTo: `${publicUrl}/dashboard`
             }
         });
 
